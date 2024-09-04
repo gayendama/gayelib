@@ -1,10 +1,13 @@
 def call(){
 pipeline {
     agent any
+    environment {
+       def p = pipelineConfig()
+    }
+
     
     stages {
-         def p = pipelineConfig()
-        
+                
         stage('Checkout') {
             steps {
                 checkout scm
