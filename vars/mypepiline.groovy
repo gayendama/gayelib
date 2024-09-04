@@ -1,11 +1,7 @@
 def call(){
 pipeline {
     agent any
-    environment {
-       def p = pipelineConfig()
-    }
-
-    
+       
     stages {
                 
         stage('Checkout') {
@@ -17,6 +13,7 @@ pipeline {
         stage('Auto discovery') {
             steps {
                 script {
+                    def p = pipelineConfig()
                     autoDiscovery(p)
                 }
             }
@@ -24,6 +21,7 @@ pipeline {
         stage('Build image docker') {
             steps {
                 script {
+                    def p = pipelineConfig()
                     build(p.IMAGE_NAME, p.DOCKER_ID)
                 }
             }
