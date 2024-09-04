@@ -22,10 +22,7 @@ pipeline {
             steps {
                 script {
                     def p = pipelineConfig()
-                    build([
-                        IMAGE_NAME: p.IMAGE_NAME,
-                        DOCKER_ID: p.DOCKER_ID
-                    ]) // Appeler la méthode avec un Map
+                    build([p.IMAGE_NAME,p.DOCKER_ID])
             }
         }
     }
