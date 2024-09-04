@@ -3,7 +3,8 @@ pipeline {
     agent any
     
     stages {
-
+         def p = pipelineConfig()
+        
         stage('Checkout') {
             steps {
                 checkout scm
@@ -13,7 +14,6 @@ pipeline {
         stage('Auto discovery') {
             steps {
                 script {
-                    def p = pipelineConfig()
                     autoDiscovery(p)
                 }
             }
