@@ -1,3 +1,4 @@
+def call(){
 pipeline {
     agent { label 'jenkins-test-jmeter-soapui' }
     
@@ -25,4 +26,5 @@ pipeline {
             }
         }
     }
+}
 }
